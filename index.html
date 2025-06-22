@@ -26,11 +26,11 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <img src="./assets/esp-logo.png" width="42" height="42" style="vertical-align:middle"></img>&emsp;
-                    <h4 class="modal-title"><span style="color: #17a2b8;"> ESP Firmware Flashing Status </span></h4>
+                    <h4 class="modal-title"><span style="color: #17a2b8;"> ESP固件烧写状态 </span></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeFlashComplete"></button>
                   </div>
                   <div class="modal-body" id="preview_body">
-                    <div><p>Flashing of firmware is completed! Click the <b>'Reset Device'</b> button on the Console Tab to reset your device with the new flashed firnware.
+                    <div><p>固件烧写完毕！点击控制台栏中的<b>'重启设备'</b> 以将您的设备重启并运行新固件.
                       <br><br>
                       <span id="appDownloadLink"></span>
                       <br /><br />
@@ -54,7 +54,7 @@
                     </div>
                   </div>
                   <div class="modal-footer">
-                    <button class="app-button btn btn-outline-dark" type="button" id="done" data-bs-dismiss="modal">Done</button>
+                    <button class="app-button btn btn-outline-dark" type="button" id="done" data-bs-dismiss="modal">好嘞</button>
                   </div>
                 </div>
               </div>
@@ -65,7 +65,7 @@
         <!-- Modal for reset device starts-->
         <div class="container" id="mainContainer">
 
-            <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#resetModal" id="resetConfirmation" hidden>Open Modal</button>
+            <button type="button" class="btn btn-info btn-lg" data-bs-toggle="modal" data-bs-target="#resetModal" id="resetConfirmation" hidden>打开模态框</button>
             <div class="modal fade" id="resetModal" role="dialog">
               <div class="modal-dialog modal-lg">
 
@@ -73,14 +73,14 @@
                 <div class="modal-content">
                   <div class="modal-header">
                     <img src="./assets/esp-logo.png" width="42" height="42" style="vertical-align:middle"></img>&emsp;
-                    <h4 class="modal-title"><span style="color: #17a2b8;"> ESP Reset Device Confirmation </span></h4>
+                    <h4 class="modal-title"><span style="color: #17a2b8;"> ESP重启确认 </span></h4>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="closeResetModal"></button>
                   </div>
                   <div class="modal-body" id="preview_body">
                     <div id="resetMessage">
-                        <p>This will reset your device. Click on 'Confirm' to continue.</p>
+                        <p>这个操作会重启您的ESP设备，点击确认以继续。</p>
                         <button class="app-button btn btn-outline-dark" type="button" id="resetButton" data-toggle="tooltip"
-                        data-placement="right" title="Confirm to Reset your device">Confirm</button>
+                        data-placement="right" title="Confirm to Reset your device">确认</button>
                         <div><br></div>
                     </div>
                   </div>
@@ -106,46 +106,46 @@
                         <li class="nav-item active" data-role="nav-menu-tab" data-target-tab-panel-id="quickstart">
                             <button class="nav-link icon-button">
                                 <img src="assets/icons/quickstart.png" class="icon" />
-                                <span>Quick Start</span>
+                                <span>快速开始</span>
                             </button>
                         </li>
 
                         <li class="nav-item" data-role="nav-menu-tab" data-target-tab-panel-id="diy">
                             <button class="nav-link icon-button">
                                 <img src="assets/icons/diy.png" class="icon" />
-                                <span>DIY</span>
+                                <span>自定义</span>
                             </button>
                         </li>
 
                         <li class="nav-item">
                             <button class="nav-link icon-button" id="connectButton">
                                 <img src="assets/icons/connect.png" class="icon" />
-                                <span>Connect</span>
+                                <span>连接设备</span>
                             </button>
                             <button class="nav-link icon-button" id="disconnectButton">
                                 <img src="assets/icons/disconnect.png" class="icon" />
-                                <span>Disconnect</span>
+                                <span>断开连接</span>
                             </button>
                         </li>
 
                         <li class="nav-item" data-role="nav-menu-tab" data-target-tab-panel-id="console">
                             <button class="nav-link icon-button" id="v-pills-console-tab">
                                 <img src="assets/icons/console.png" class="icon" />
-                                <span>Console</span>
+                                <span>控制台</span>
                             </button>
                         </li>
 
                         <li class="nav-item" data-role="nav-menu-tab" data-target-tab-panel-id="settings">
                             <button class="nav-link icon-button">
                                 <img src="assets/icons/settings.png" class="icon" />
-                                <span>Settings</span>
+                                <span>设置</span>
                             </button>
                         </li>
 
                         <li class="nav-item" data-role="nav-menu-tab" data-target-tab-panel-id="about">
                             <button class="nav-link icon-button" id="aboutButton">
                                 <img src="assets/icons/about-us.png" class="icon" />
-                                <span>About</span>
+                                <span>关于</span>
                             </button>
                         </li>
                     </ul>
@@ -156,10 +156,10 @@
         <div class="container" id="alert-container">
             <div class="text-center mt-3 intro-text">
                 <div class="alert alert-warning alert-dismissible fade show" role="alert">
-                    <label style="display:none" id="lblConnTo"><b>Connected to device: </b></label>
-                    <p><span>ESP Launchpad helps you to flash the selected firmware image onto your device.</span>
-                    <br /><span id="ensureConnect"> Ensure you have connected your device to the serial USB port. Click on the 'Connect' button in the top menu option, to connect to your attached device.
-                        Note : Once you flash your device, any earlier firmware would be overwritten.</span>
+                    <label style="display:none" id="lblConnTo"><b>已连接到: </b></label>
+                    <p><span>ESP Launchpad会帮助您烧写您的ESP设备。</span>
+                    <br /><span id="ensureConnect"> 请你保证您已经将设备连接至电脑。点击目录项内的 '连接设备' 按钮来连接您接入电脑的设备
+                        注意⚠️ : 烧写固件会覆盖原先的固件</span>
                     </p>
 
                 </div>
@@ -168,13 +168,13 @@
 
         <!-- Quick start tab content - start -->
         <div class="container tabs-section main-page-tab-panel" data-tab-panel-id="quickstart">
-            <h5 class="pt-4 pb-2 lh-lg"><span id="qtLabel">Choose from some of ESP's pre-built, out-of-the-box examples to flash and play</span></h5>
+            <h5 class="pt-4 pb-2 lh-lg"><span id="qtLabel">快来试试看一些提前准备好的示例吧！</span></h5>
             <div class="form">
                 <div class="d-flex justify-content-between flex-wrap form-config-info-container-wrapper">
                     <div class="form-container">
                         <div class="field-container">
                             <label>
-                                Select Application
+                                选择应用
                             </label>
                             <div class="field">
                                 <select name="device" id="device">
@@ -183,7 +183,7 @@
                         </div>
                         <div class="field-container">
                             <label>
-                                ESP Chipset Type
+                                ESP芯片种类
                             </label>
                             <div class="field">
                                 <div id="chipsets">
@@ -221,23 +221,23 @@
                         </div>
                         <div class="field-container" id="appDescriptionContainer" style="display: none; align-items: baseline;">
                             <label>
-                                Application Description
+                                应用描述
                             </label>
                             <span class="appdescription-text" id="appDescription">
                             </span>
                         </div>
                         <div class="field-container">
                             <div class="field-container" title="Click on 'Connect' button in top Menu" style="display:inline-block" data-toggle="tooltip" id="flashWrapper">
-                                <button class="app-button submit-form-button btn btn-outline-dark" id="flashButton" disabled>Flash</button>
+                                <button class="app-button submit-form-button btn btn-outline-dark" id="flashButton" disabled>烧录</button>
                             </div>
                             <div id="appInfoTriggerContainer" class="field-container app-info-trigger-container" style="display: none;">
-                                <a href="#" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">Show Application Information</a>
+                                <a href="#" role="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">展示应用信息</a>
                             </div>
                         </div>
                     </div>
                     <div class="offcanvas offcanvas-end w-50" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
                         <div class="offcanvas-header">
-                          <h2 id="offcanvasRightLabel">Application Information</h2>
+                          <h2 id="offcanvasRightLabel">应用信息</h2>
                           <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                         </div>
                         <div class="offcanvas-body">
@@ -245,12 +245,12 @@
                         </div>
                     </div>
                     <div class="card text-dark bg-light app-config-info-container" id="appConfigInfoContainer" style="display: none;">
-                        <div class="card-header">Application Configuration&colon;</div>
+                        <div class="card-header">应用设置&colon;</div>
                         <div class="card-body overflow-auto" id="appConfigInfo"></div>
                     </div>
                 </div>
                 <div class="mt-xl-5" id="progressMsgContainerQS" style="display:none">
-                    <span id="progressMsgQS" style="display:none"><i>This may take a short while. Check console for the progress</i></span>
+                    <span id="progressMsgQS" style="display:none"><i>这会需要一些时间。您可以查看控制台来确认状态。</i></span>
                     <br /><br />
                     <span id="setupPayloadInfoTextQS"></span>
                     <br><br>
@@ -275,10 +275,10 @@
 
         <!-- DIY tab content - start -->
         <div class="container tabs-section main-page-tab-panel" data-tab-panel-id="diy">
-            <h5 class="pt-4 pb-2 lh-lg">Choose your own built firmware image from the local storage to flash and use.</h5>
+            <h5 class="pt-4 pb-2 lh-lg">选择您自己的固件并烧录</h5>
                 <br>
                 <input class="btn btn-danger btn-sm" type="button" id="eraseButton" value="Erase Flash" data-toggle="tooltip"
-            data-placement="top" title="Erase firmware on your device"/>
+            data-placement="top" title="清空您的设备"/>
 
                 <div class="alert alert-danger alert-dismissible fade-in-down" id="alertDiv" style="display:none; margin-top:10px">
                     <a href="#" class="close" aria-label="close" onclick="$('.alert').hide()">&times;</a>
@@ -288,8 +288,8 @@
                     <table id="fileTable">
                         <thead>
                             <tr>
-                                <th>Flash Address</th>
-                                <th>Selected File</th>
+                                <th>烧录地址</th>
+                                <th>已选择文件</th>
                                 <th>&nbsp;</th>
                             </tr>
                         </thead>
