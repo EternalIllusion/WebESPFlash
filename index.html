@@ -80,7 +80,7 @@
                     <div id="resetMessage">
                         <p>这个操作会重启您的ESP设备，点击确认以继续。</p>
                         <button class="app-button btn btn-outline-dark" type="button" id="resetButton" data-toggle="tooltip"
-                        data-placement="right" title="Confirm to Reset your device">确认</button>
+                        data-placement="right" title="确认以重启您的设备">确认</button>
                         <div><br></div>
                     </div>
                   </div>
@@ -227,7 +227,7 @@
                             </span>
                         </div>
                         <div class="field-container">
-                            <div class="field-container" title="Click on 'Connect' button in top Menu" style="display:inline-block" data-toggle="tooltip" id="flashWrapper">
+                            <div class="field-container" title="点击顶栏上的连接设备按钮" style="display:inline-block" data-toggle="tooltip" id="flashWrapper">
                                 <button class="app-button submit-form-button btn btn-outline-dark" id="flashButton" disabled>烧录</button>
                             </div>
                             <div id="appInfoTriggerContainer" class="field-container app-info-trigger-container" style="display: none;">
@@ -303,8 +303,8 @@
                     </table>
                     <div class="button-container text-end mb-sm-3">
                         <button type="button" class="app-button submit-form-button btn btn-outline-dark" id="addFile"
-                        data-toggle="tooltip" data-placement="right" title="Add another file to flash set" style="margin-right:10px;">Add File</button>
-                    <div class="field-container" data-toggle="tooltip" data-placement="right" title="Click on 'Connect' button in top menu" id="programwrapper" style="display:inline-block">
+                        data-toggle="tooltip" data-placement="right" title="新增一个要烧录的文件" style="margin-right:10px;">Add File</button>
+                    <div class="field-container" data-toggle="tooltip" data-placement="right" title="点击顶栏上的连接设备按钮" id="programwrapper" style="display:inline-block">
                         <button type="button" class="app-button submit-form-button btn btn-outline-dark" id="programButton" disabled>Program</button>
                     </div>
                     </div>
@@ -323,7 +323,7 @@
                 </div>
                 <div class="col-12 fade-in-down" id="terminalContainer" style="display:none;">
                     <div class="button-container text-end mb-sm-3">
-                        <div class="field-container" data-toggle="tooltip" data-placement="right" title="Reset your device" style="display:inline-block;">
+                        <div class="field-container" data-toggle="tooltip" data-placement="right" title="重启设备" style="display:inline-block;">
                             <button type="button" class="app-button btn btn-outline-dark" id="consoleStartButton" disabled>
                                 Reset Device
                             </button>
@@ -342,13 +342,13 @@
                 <div class="col-xs-12 ">
                     <div class="form">
                         <div id="baudRateSettings" class="lh-lg">
-                            <span><b>Configure the baudrate's for serial communication as per your application:</b></span>
+                            <span><b>根据您的应用程序配置串行通信的波特率：</b></span>
                         </div>
                         <hr/>
                         <div class="d-flex justify-content-around">
                             <div class="field-container">
                                 <label>
-                                    Flashing Baudrate
+                                    烧录波特率
                                 </label>
                                 <div class="field" id="flashingBaudrateSettings">
                                     <select name="flashingBaudrateSelect" id="flashingBaudrateSelect">
@@ -361,7 +361,7 @@
                             </div>
                             <div class="field-container">
                                 <label>
-                                    Console Baudrate
+                                    控制台波特率
                                 </label>
                                 <div class="field" id="consoleBaudrateSettings">
                                     <select name="consoleBaudrateSelect" id="consoleBaudrateSelect">
@@ -374,14 +374,14 @@
                         <div id="settingsWarning" style="display:none" class="mt-3">
                             <div class="mb-1">
                                 <i>
-                                    ** Flashing baudrate cannot be changed for a connected device. Please disconnect the device and then change the flashing baudrate.
+                                    ** 烧录波特率不能在设备连接时设置。请您先断开连接再修改烧录波特率。
                                 </i>
                             </div>
                             <div>
                                 <i>
-                                    ** If you haven't configured the console baudrate in the TOML file as mentioned
-                                    <a href="https://github.com/espressif/esp-launchpad/blob/main/config/config.toml" target="_blank">here</a>
-                                     or are using DIY mode, you can change it in between device resets.
+                                    ** 如果您没有按照 
+                                    <a href="https://github.com/espressif/esp-launchpad/blob/main/config/config.toml" target="_blank">此处</a>
+                                     所提供的选项配置控制台波特率或者使用自定义模式，您可以在设备重启时重设它。
                                 </i>
                             </div>
                         </div>
@@ -396,62 +396,50 @@
             <div class="row">
                 <div class="col-xs-12">
                     <span>
-                        ESP Launchpad is a web based tool, available for flashing firmware application to the ESP32 device connected via
-                        USB serial port.
+                        ESP Launchpad 是一个基于 Web 的工具，可用于将固件应用程序刷入通过 USB 串行端口连接的 ESP32 设备。此版本的翻译由<a href="https://github.com/EternalIllusion">EterIll</a>贡献。
                     </span>
                     <p>
-                        There are two modes available for using this tool:
+                        有两种模式可使用此工具：
                         <ul>
-                          <li><a class="anchor" href="#qsDiv">Quick Start</a> : 4 Easy Steps - Plug, Connect, Choose Built-In Firmware Image, Flash!</li>
-                          <li><a class="anchor" href="#diyDiv">DIY</a> : For Advanced Users, use your own pre-built Firmware Image from local storage and Flash!</li>
+                          <li><a class="anchor" href="#qsDiv">快速开始</a> : 4 个简单的步骤 - 插入、连接、选择、刷写！</li>
+                          <li><a class="anchor" href="#diyDiv">自定义</a> : 对于高级用户，使用您自己从本地存储中预构建的固件映像！</li>
                         </ul>
 
-                        You can even build and <a class="anchor" href="#publishDiv">Publish your own Apps </a> for ESP32 using ESP Launchpad.
+                        您甚至可以使用 ESP Launchpad 为 ESP32 构建和 <a class="anchor" href="#publishDiv">发布自己的应用程序</a>！
                     </p>
                 </div>
                 <!-- Quick Try -->
                 <div class="col-xs-12 mt-5 " id="qsDiv">
-                    <h4 class="topic mb-4"><b>Quick Start</b></h4>
+                    <h4 class="topic mb-4"><b>快速开始</b></h4>
                     <p>
-                        ESP currently provides a few built in, ready to use examples that can be flashed on the ESP32 devices. You can
-                        choose one of the built in firmware application for either RainMaker or Matter, and as per the chipset type.
-                        Just plug in your ESP32 device to the serial USB port. Use connect option in the menu to connect to your ESP32 device. Choose
-                        the firmware from the built-in firmware example set. Click Flash!
+                        ESP 目前提供了一些内置的可以在 ESP32 设备上刷写的即用型示例。您可以根据芯片组类型，选择 RainMaker 或 Matter 的应用程序内置固件。您只需将 ESP32 设备插入USB串口即可，然后使用菜单中的 connect 选项连接到您的 ESP32 设备，接着从示例集中选择固件，单击 烧录！
                     </p>
-                    <p>The firmware will be flashed on to your connected device. You can watch the progress of the firmware flashing in
-                        the console window.</p>
-                    <p>This easy, 4 step process will flash the firmware on to the connected device and bring it into play as you want it to be.</p>
-                    <h6 class="trynow mb-4" data-target-tab-panel-id="quickstart"><b>Try Now !</b></h6>
+                    <p>固件将刷入您连接的设备。您也可以在控制台窗口中查看固件烧写的进度。</p>
+                    <p>这个简单的 4 步过程会将固件刷入连接的设备，并按照您的意愿使其发光发热（确信）。</p>
+                    <h6 class="trynow mb-4" data-target-tab-panel-id="quickstart"><b>握草，赶紧让爷试试!</b></h6>
                 </div>
                 <!-- DIY -->
                 <div class="col-xs-12 mt-5 " id="diyDiv">
-                    <h4 class="topic mb-4" ><b>DIY</b></h4>
+                    <h4 class="topic mb-4" ><b>自定义</b></h4>
                     <p>
-                        You can build your own firmware binaries using the ESP IDF tools. These firmware images can then be flashed from
-                        your local machine to the connected device. Just connect your ESP32 device to the serial USB port. Using the web
-                        based tool, connect to your device. You can then select the firmware application from the local storage of the
-                        machine. Choose the memory address where to flash the firmware. Firmware can be a single file or a set of
-                        multiple files to be flashed at particular memory addresses.
+                        您可以使用 ESP IDF 工具构建自己的固件二进制，然后将这些固件映像从本地刷写到连接的设备。只需将您的 ESP32 设备连接到USB串口即可使用工具连接到您的设备，然后从本地存储中选择固件和要刷写的固件的内存地址。固件可以是单个文件，也可以是一组要在特定内存地址刷写的多个文件。
                     </p>
-                    <p><b>Click Flash!</b></p>
-                    <p>The firmware will be flashed on to your connected device. You can watch the progress of the firmware flashing in
-                        the console window.
+                    <p><b>点击烧录!</b></p>
+                    <p>
+                        固件将刷入您连接的设备。您也可以在控制台窗口中查看固件烧写的进度。
                     </p>
-                    <h6 class="trynow mb-4" data-target-tab-panel-id="diy"><b>Try Now !</b></h6>
+                    <h6 class="trynow mb-4" data-target-tab-panel-id="diy"><b>赶紧让爷看看!</b></h6>
                 </div>
                 <!-- Publish your own firmware apps -->
                 <div class="col-xs-12 mt-5" id="publishDiv">
-                    <h4 class=" mb-4" style="color: #e63f36;"><b>Publish your own firmware apps</b></h4>
-                    <p>ESP Launchpad also lets you easily publish your firmware apps for others to try.</p>
+                    <h4 class=" mb-4" style="color: #e63f36;"><b>发布您自己的固件应用程序</b></h4>
+                    <p>ESP Launchpad 还允许您轻松发布固件应用程序供其他人尝试。</p>
 
-                    <p>The ESP Launchpad Quick Start page would be rendered by referring to a TOML configuration file, where you can configure where to pick
-                    all the component images of your firmware, and the supported hardware. You could also link to any support phone apps to work along with
-                    this firmware. A sample TOML config file can be viewed <a href="https://espressif.github.io/esp-launchpad/config/config.toml"> here </a> </p>
+                    <p>ESP Launchpad 快速入门页面将通过引用 TOML 配置文件来呈现，您可以在其中配置从何处选择固件的所有组件镜像以及支持的硬件。您还可以链接到任何支持的手机应用程序来使用此固件。您可以在 <a href="https://espressif.github.io/esp-launchpad/config/config.toml"> 此处 </a> 查看示例 TOML 配置文件</p>
 
-                    <p>Rest of the flashing procedure is same easy 4 step process as the Quick Start one above.</p>
+                    <p>其余的刷写过程与上面的快速入门过程相同，只需 4 个步骤即可。</p>
 
-                    <p>Once ready, you can use the following image and add following html code on your website for supporting ESPaunchpad with your configuration.
-                        Edit the query parameter in the href, replacing URL_TO_YOUR_CONFIG_TOML value where your TOML config file is hosted.
+                    <p>完成后，您可以使用下图并在您的网站上添加以下 html 代码，以便通过您的配置支持 ESPaunchpad。编辑 href 中的参数，替换URL_TO_YOUR_CONFIG_TOML为您托管 TOML 配置文件的URL值。
                     </p>
                     <div style="padding-bottom: 40px;">
                         <div style="padding-bottom: 10px;">
@@ -459,8 +447,8 @@
                             width="250" height="70">
                         </div>
                         <div>
-                            <textarea readonly cols="160" rows="3"><a href="https://espressif.github.io/esp-launchpad/?flashConfigURL=URL_TO_YOUR_CONFIG_TOML">
-    <img alt="Try it with ESP Launchpad" src="https://espressif.github.io/esp-launchpad/assets/try_with_launchpad.png" width="250" height="70">
+                            <textarea readonly cols="160" rows="3"><a href="https://esp.eterill.xyz/?flashConfigURL=URL_TO_YOUR_CONFIG_TOML">
+    <img alt="使用ESP Launchpad一键烧录！" src="https://esp.eterill.xyz/assets/try_with_launchpad.png" width="250" height="70">
 </a>
                             </textarea>
                         </div>
@@ -473,18 +461,18 @@
 
     <!-- Safari & FireFox not supported error message-->
     <div id="unsupportedBrowserErr" style="display:none"><p align="center" style="color:red">
-        This tool is not supported on Safari & Firefox browsers yet! Please try using another browser like Google Chrome.
+        这个工具还不支持Safari和火狐浏览器捏～也许你可以换一个浏览器试试？
             <br> <br>
-            ESP Launchpad makes use of WebUSB to communicate with the device. Currently Safari & Firefox browsers don't support it yet.
+            ESP Launchpad使用WebUSB来与设备交互。当下Safari和火狐浏览器还没支持这个功能捏。
 
-            We will add support for this browser as soon as Safari & Firefox starts supporting WebUSB.
+            我们会在Safari和火狐浏览器支持这个功能的时候添加对其的支持的捏～
 
     </p>
     </div>
 
         <footer class="mt-auto py-3">
             <div class="container text-center">
-                <span class="text-muted">Copyright © 2024 Espressif Systems</span>
+                <span class="text-muted">Copyright &copy; 2024 Espressif Systems ｜ Translation &copy; 2025 EternalIllusion</span>
             </div>
         </footer>
         <!-- Third party libraries-->
