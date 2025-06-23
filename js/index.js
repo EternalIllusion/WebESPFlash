@@ -181,7 +181,7 @@ function addDeviceTypeOption(apps) {
             var app_config = config[app];
             var option = document.createElement("option");
             option.value = app;
-            option.text = app;
+            option.text = app_config.optionname?app_config.optionname:app;
             deviceTypeSelect.appendChild(option);
     });
 }
