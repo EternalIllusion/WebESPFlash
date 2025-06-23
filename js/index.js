@@ -89,22 +89,11 @@ var isDefault = true;
 // Build the Quick Try UI using the config toml file. If external path is not specified, pick up the default config
 async function buildQuickTryUI() {
     const urlParams = new URLSearchParams(window.location.search);
-    var tomlFileURL = "https://espressif.github.io/esp-rainmaker/launchpad.toml"; // defaulting to rainmaker for now.
-    var solution = urlParams.get("solution");
-    if (solution){
-        if (solution.toLowerCase() == "matter")
-            // use the one published by the ci/cd job of matter on the github
-            tomlFileURL = "https://espressif.github.io/esp-matter/launchpad.toml";
-        else if(solution.toLowerCase() == "rainmaker")
-            // use the one published by ci/cd job of rainmaker on the github
-            tomlFileURL = "https://espressif.github.io/esp-rainmaker/launchpad.toml";
-    }
-    else {
-        var externalURL = urlParams.get('flashConfigURL');
-        if(externalURL){
-            tomlFileURL = externalURL;
-            isDefault = false;
-        }
+    var tomlFileURL = "https://esp.eterill.xyz/config/default_config.toml"; // defaulting to rainmaker for now.
+    var externalURL = urlParams.get('flashConfigURL');
+    if(externalURL){
+        tomlFileURL = externalURL;
+        isDefault = false;
     }
     var xhr = new XMLHttpRequest();
     xhr.open('GET', tomlFileURL, true);
