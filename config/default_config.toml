@@ -51,16 +51,18 @@ image.s3-n8r8 = "szy_pc_homekit.bin"
 
 [szy-plus]
 optionname = "大叔神之眼PLUS"
+description = "博虎新屏请选bh；博虎旧屏请选bhold；华显屏请选hx。"
 chipsets = ["ESP32-S3"]
-developKits.esp32-s3 = ["博虎新屏", "博虎旧屏", "华显屏"]
-image.博虎新屏 = "szy_plus_bh.bin"
-image.博虎旧屏 = "szy_plus_bhold.bin"
-image.华显屏 = "szy_plus_hx.bin"
+developKits.esp32-s3 = ["bh", "bhold", "hx"]
+image.bh = "szy_plus_bh.bin"
+image.bhold = "szy_plus_bhold.bin"
+image.hx = "szy_plus_hx.bin"
 
 [szy-plusm]
 optionname = "大叔神之眼PLUS改版"
+description = "博虎新屏请选bh；博虎旧屏请选bhold；华显屏请选hx。"
 chipsets = ["ESP32-S3"]
-developKits.esp32-s3 = ["博虎新屏", "博虎旧屏", "华显屏"]
-image.博虎新屏 = "szy_plusm_bh.bin"
-image.博虎旧屏 = "szy_plusm_bhold.bin"
-image.华显屏 = "szy_plusm_hx.bin"
+developKits.esp32-s3 = ["bh", "bhold", "hx"]
+image.bh = "szy_plusm_bh.bin"
+image.bhold = "szy_plusm_bhold.bin"
+image.hx = "szy_plusm_hx.bin"
