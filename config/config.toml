@@ -1,36 +1,66 @@
 esp_toml_version = 1.0
 
 # This should be a publicly accessible URL of the file server where your firmware binaries are available for download
+# 这里应有一个可以在公网访问的URL来指向固件可以被下载的地址
 firmware_images_url = "<URL to your firmware images directory>"
 
 # Apps that you support and for which the binaries are available to publish. You can have multiple apps as a comma separated list
 # The launch pad UI will automatically show these Apps in the available apps dropdown
 # There should be a config section per listed App
+# 对于那些将被发布的固件所对应的应用，您可以使用逗号列表分隔添加多个应用
+# 网页会在下拉框内自动展示这些APP
+# 对于每一个APP都应当有一个对应的配置区块
 supported_apps = ["YOUR_FIRMWARE_APP_NAME"]
 
 # Optional: This should be a publicly accessible URL of the application configuration markdown file
 # The markdown file will display the application configuration.
 # It might include details such as the revisions of esp-idf, esp-matter, etc. or any other application configuration
+# 可选：这应是一个公网可访问的应用程序配置markdown文件的URL
+# 该markdown文件将显示应用程序配置。
+# 它可包括esp-idf、esp-matter等的修订版本或任何其他应用程序配置的详细信息。
 config_readme_url = "<APP_CONFIG_README_FILE_URL>"
 
+
+#=====================================================================
+
+# 配置区块，对应您先前设置的应用名称
 [YOUR_FIRMWARE_APP_NAME]
+
 # ESP32 Chipsets for which you have a supported Firmware App. Define a property for each supported chipset in the given format.
+# 您的固件应用程序支持的ESP32芯片，为给定格式中的每个支持的芯片组定义一个属性。
 chipsets = ["ESP32", "ESP32-S2", "ESP32-C3", "ESP32-S3"]
+
 # Optional: Set development board for chip model.
+# 可选：为芯片种类设置一些开发版型号和代称
 developKits.esp32-s3 = ["esp32-s3-box", "esp32-s3-box3"]
+
 # Configure the name of the binary file
+# 设置固件文件名
 image.esp32 = "SINGLE_BIN_FOR_ESP32.bin"
 image.esp32-s2 = "SINGLE_BIN_FOR_ESP32-S2.bin"
 image.esp32-c3 = "SINGLE_BIN_FOR_ESP32-C3.bin"
+
 # Optinal: Configure the name of the image file for development board. Under this configuration, image.esp32-s3 will become invalid..
+# 可选：配置开发板对应的的映像文件名称。在此配置下，image.esp32-s3 配置项将无效。
 image.esp32-s3-box = "SINGLE_BIN_FOR_ESP32-S3-BOX.bin"
 image.esp32-s3-box3 = "SINGLE_BIN_FOR_ESP32-S3-BOX3.bin"
+
 # Optional: A brief introduction to this app.
+# 可选：对于APP的简短描述
 description = "Description of the firmware app"
+
+# 可选：固件offset（官方文档没有写明的隐藏功能）
+offset = "0x0000"
+
 # Optional: Phone APP URLs if any for Playstores
+# 可选：对应的手机APP下载链接
 android_app_url = ""
 ios_app_url = ""
+
 # Optional: URL of the Markdown file for additional information about the app
+# 可选：指向关于应用的更多信息的Markdown文件的URl
 readme.text = "<URL to your Markdown file>"
+
 # Optional: Supported console baudrate for app firmware (default value is 115200)
+# 可选：应用固件支持的控制台波特率（默认值为115200）
 console_baudrate = <SUPPORTED_CONSOLE_BAUDRATE>
