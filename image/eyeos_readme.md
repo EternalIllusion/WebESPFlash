@@ -7,32 +7,6 @@
 
 不过, 为了能让用户收到通知, 在每次从时钟和抽卡功能退出时 会自动检查一下固件和卡池更新
 
-## 串口固件烧录方法:
-
-1. 在压缩包内准备好以下三个文件:
-
-如果压缩包内没有, 请浏览群文件内更大的压缩包, 其中应当有这些文件
-
-```
-bootloader_dio_80m 
-partitions.bin     
-boot_app0.bin      
-firmware.bin       
-```
-
-2. 打开烧录软件 flash_download_tool_3.9.2.exe 烧录选项: flash 80MHz, DIO模式
-
-```
-bootloader_dio_80m 0x1000
-partitions.bin     0x8000
-boot_app0.bin      0xe000
-firmware.bin       0x10000
-```
-
-3. 等待烧录完成
-
----
-
 版权所有 (C) FriendshipEnder
 
 ## 1.6.0版本说明必看!!!
