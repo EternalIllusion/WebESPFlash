@@ -53,7 +53,7 @@ const Transport = esptooljs.Transport;
 if (utilities.isWebUSBSerialSupported()) {
     document.getElementById("unsupportedBrowserErr").style.display = "inline";
     document.getElementById("main").style.display = "none";
-    throw new Error('Unsupported Browser');
+    throw new Error('不支持的浏览器');
 }
 
 const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
@@ -109,11 +109,11 @@ async function buildQuickTryUI() {
                 if (filtered_apps.length > 0) {
                     config["supported_apps"] = filtered_apps;
                 } else {
-                    alert(`No applications found for ${requestedApp}`);
+                    alert(`在${requestedApp}中没有找到应用程序`);
                 }
             }
             if(!isDefault) {
-                $("#qtLabel").html("Choose from the firmware images listed below. <Br> You have chosen to try the firmware images from an <b><u>external source</u> - "
+                $("#qtLabel").html("选择下方列出的固件镜像 <Br> 您选择了一个<b>来自<u>外部来源</u>的镜像 - "
                                             + tomlFileURL + "</b>");
             }
             try {
@@ -121,10 +121,10 @@ async function buildQuickTryUI() {
                     buildQuickTryUI_v1_0();
 
                 else
-                    alert("Unsupported config version used!!");
+                    alert("不支持的配置文件版本!!");
             }
             catch (err){
-                alert ("Unsupported config version used -" + err.message);
+                alert ("使用了不受支持的固件配置协议版本 -" + err.message);
             }
             return config;
         }
@@ -226,7 +226,7 @@ function populateSupportedDevelopKits(developKitsConfig) {
         inputElement = document.createElement("input");
         inputElement.setAttribute("type", "radio");
         inputElement.setAttribute("class", "form-check-input");
-        inputElement.name = "developKitsType";
+        inputElement.name = "开发板类型";
         inputElement.id = "radio-" + developKit;
         inputElement.value = config[deviceTypeSelect.value].image[developKit];
 
@@ -268,7 +268,7 @@ function populateSupportedChipsets(deviceConfig) {
         inputElement = document.createElement("input");
         inputElement.setAttribute("type", "radio");
         inputElement.setAttribute("class", "form-check-input");
-        inputElement.name = "chipType";
+        inputElement.name = "芯片类型";
         inputElement.id = "radio-" + chipset;
         inputElement.value = deviceConfig["image"][chipset.toLowerCase()];
         if (chipset.toLowerCase() === chip.toLowerCase()) {
@@ -337,7 +337,7 @@ $('#device').on('change', function() {
         fetch(markdown_payload_url)
         .then(response => {
             if (!response.ok) {
-                throw new Error('Network response was not ok');
+                throw new Error('网络异常');
             }
             return response.text();
         })
@@ -409,12 +409,12 @@ async function connectToDevice() {
 
 function postConnectControls() {
     if(chipDesc !== "default"){
-        lblConnTo.innerHTML = "<b><span style='color:#17a2b8'>Connected to device: </span>" + chipDesc + "</b>";
+        lblConnTo.innerHTML = "<b><span style='color:#17a2b8'>已连接到设备: </span>" + chipDesc + "</b>";
         $("#programButton").prop("disabled", false);
-        $("#programwrapper").tooltip().attr("data-bs-original-title","This will flash the firmware image on your device");
+        $("#programwrapper").tooltip().attr("data-bs-original-title","这会在您的设备上烧录固件程序");
         $("#flashingBaudrateSelect").prop("disabled", true);
         $("#flashButton").prop("disabled", false);
-        $("#flashWrapper").tooltip().attr('data-bs-original-title', "This will download and flash the firmware image on your device");
+        $("#flashWrapper").tooltip().attr('data-bs-original-title', "这会将固件镜像下载并烧录至您的设备");
         $("#consoleStartButton").prop("disabled", false);
         $("#eraseButton").prop("disabled", false);
 
@@ -427,7 +427,7 @@ function postConnectControls() {
         terminalContainer.style.display = "block";
     }
     else
-        lblConnTo.innerHTML = "<b><span style='color:red'>Unable to detect device. Please ensure the device is not connected in another application</span></b>";
+        lblConnTo.innerHTML = "<b><span style='color:red'>无法连接设备。请确保端口未被其他程序占用</span></b>";
     lblConnTo.style.display = "block";
 
     $('input:radio[id="radio-' + chip + '"]').prop('checked', true).trigger('change');
@@ -538,8 +538,8 @@ disconnectButton.onclick = async () => {
     term.clear();
     $("#flashingBaudrateSelect").prop("disabled", false);
     $("#flashButton").prop("disabled", true);
-    $("#flashWrapper").tooltip().attr('data-bs-original-title', "Click on 'Connect' button in top Menu");
-    $("#programwrapper").tooltip().attr("data-bs-original-title","Click on 'Connect' button in top Menu");
+    $("#flashWrapper").tooltip().attr('data-bs-original-title', "点击顶栏上的连接设备按钮");
+    $("#programwrapper").tooltip().attr("data-bs-original-title","点击顶栏上的连接设备按钮");
     $("#programButton").prop("disabled", true);
     $("#consoleStartButton").prop("disabled", true);
     settingsWarning.style.display = "none";
@@ -581,17 +581,17 @@ function validate_program_inputs() {
 
         // Non-numeric or blank offset
         if (Number.isNaN(offset))
-            return "Offset field in row " + index + " is not a valid address!";
+            return "位于第" + index + "行的offset不是有效的地址!";
         // Repeated offset used
         else if (offsetArr.includes(offset))
-            return "Offset field in row " + index + " is already in use!";
+            return "位于第" + index + "行的offset已被占用!";
         else
             offsetArr.push(offset);
 
         var fileObj = row.cells[1].childNodes[0];
         fileData = fileObj.data;
         if (fileData == null)
-            return "No file selected for row: " + index + "!";
+            return "第" + index + "行没有选择有效文件!";
 
     }
     return "success";
@@ -662,7 +662,7 @@ async function downloadAndFlash(fileURL) {
             };
             await esploader.writeFlash(flashOptions);
         } else {
-	    alert("Image file not found");
+	    alert("找不到固件镜像");
 	}
     } catch (e) {
     }
@@ -673,9 +673,9 @@ async function downloadAndFlash(fileURL) {
 function buildAppLinks(){
     let hrElement = document.getElementById("preview_body").querySelector("hr");
     hrElement.style.display = "block";
-    let defaultAppURLsHTML = "Note: You can download phone app from the app store and interact with your device. Scan the QRCode to access the respective apps.";
+    let defaultAppURLsHTML = "提示：您可以从应用商店下载手机应用程序并与您的设备互动。请扫描二维码以访问相应的应用。";
     let appURLsHTML = "";
-    let setupPayloadInfo = "To set up the device, use a supported phone app to scan the QRCode located on the rightmost side.";
+    let setupPayloadInfo = "要设置设备，请使用支持的手机应用扫描位于最右侧的二维码。";
 
     if(android_app_url){
         new QRCode(document.getElementById("qrcodeAndroidApp"), {
@@ -764,10 +764,10 @@ function buildAppLinks(){
     }
 
     if(appURLsHTML === defaultAppURLsHTML){
-        $("#progressMsgQS").html("Firmware Image flashing is complete.<br /><br />" + appURLsHTML);
+        $("#progressMsgQS").html("固件烧录完成。<br /><br />" + appURLsHTML);
         $("#appDownloadLink").html(appURLsHTML);
     }else{
-        $("#progressMsgQS").html("Firmware Image flashing is complete. ");
+        $("#progressMsgQS").html("固件烧录完成。");
         hrElement.style.display = "none";
     }
 }
@@ -777,7 +777,7 @@ function cleanUpOldFlashHistory() {
     $("#androidAppLogoQS").html("");
     $("#iosAppLogo").html("");
     $("#iosAppLogoQS").html("");
-    $("#progressMsgQS").html("<i>This may take a short while. Check console for the progress</i>");
+    $("#progressMsgQS").html("<i>这会需要一些时间。您可以查看控制台来确认状态。</i>");
     $("#qrcodeAndroidApp").html("");
     $("#qrcodeAndroidAppQS").html("");
     $("#qrcodeIOSApp").html("");
@@ -855,7 +855,7 @@ flashButton.onclick = async () => {
         terminalContainer.classList.remove("fade-in-down");
     }else{
         let previousState = lblConnTo.innerHTML;
-        let alertChipsetSelectMsg = `<b><span style="color:red">Unable to flash device. Please ensure that chipset type is selected before flashing.</span></b>`;
+        let alertChipsetSelectMsg = `<b><span style="color:red">无法烧录设备。请确保正确选择了正确的芯片类型</span></b>`;
         lblConnTo.innerHTML = alertChipsetSelectMsg;
         window.scrollTo(0,0);
         setTimeout(() => {
