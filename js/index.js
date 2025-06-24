@@ -89,7 +89,7 @@ var isDefault = true;
 // Build the Quick Try UI using the config toml file. If external path is not specified, pick up the default config
 async function buildQuickTryUI() {
     const urlParams = new URLSearchParams(window.location.search);
-    var tomlFileURL = "https://esp.eterill.xyz/config/default_config.toml"; // defaulting to rainmaker for now.
+    var tomlFileURL = "https://flash.eterill.xyz/config/default_config.toml"; // defaulting to rainmaker for now.
     var externalURL = urlParams.get('flashConfigURL');
     if(externalURL){
         tomlFileURL = externalURL;
