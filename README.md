@@ -5,6 +5,20 @@ WebESPFlash
 
 **ESP Launchpad** 是一个基于 Web 的工具，可用于将固件应用程序刷入通过 USB 串行端口连接的 ESP32 设备。**此版本的翻译由[EterIll](https://github.com/EternalIllusion)贡献。**
 
+<div align = center>
+<a href="https://flash.eterill.xyz/">
+    <img alt="使用ESP Launchpad一键烧录！" src="https://flash.eterill.xyz/assets/try_with_launchpad.png" width="250" height="75">
+</a>
+
+<a href="https://esp.eterill.xyz/">
+    <img alt="Try it with ESP Launchpad" src="https://espressif.github.io/esp-launchpad/assets/try_with_launchpad.png" width="250" height="70">
+</a>
+</div>
+
+**点击上方图片进入应用。国内用户请点击中文图片。** 拥有GitHub网络环境的可以点击英文图片。
+
+**请注意！这是一个修改版本的应用。您可以在[这里](https://github.com/espressif/esp-launchpad)找到原有的ESP Launchpad项目。**
+
 有两种模式可使用此工具：
 
  - 快速开始 : 4 个简单的步骤 - 插入、连接、选择、刷写！     
@@ -43,7 +57,7 @@ ESP Launchpad 快速入门页面将通过引用 TOML 配置文件来呈现，您
 完成后，您可以在您的网站上添加以下 html 代码，以便通过您的配置支持 ESPaunchpad。编辑 href 中的参数，替换URL_TO_YOUR_CONFIG_TOML为您托管 TOML 配置文件的URL值。
 
 ```
-<a href="https://esp.eterill.xyz/?flashConfigURL=URL_TO_YOUR_CONFIG_TOML">
-    <img alt="使用ESP Launchpad一键烧录！" src="https://esp.eterill.xyz/assets/try_with_launchpad.png" width="250" height="70">
+<a href="https://flash.eterill.xyz/?flashConfigURL=URL_TO_YOUR_CONFIG_TOML">
+    <img alt="使用ESP Launchpad一键烧录！" src="https://flash.eterill.xyz/assets/try_with_launchpad.png" width="250" height="75">
 </a>
 ```
